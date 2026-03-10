@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>theta_h264_ffmpeg_packet_pub</name>
+  <version>0.0.1</version>
+  <description>
+    ROS 2 node that captures the RICOH THETA H.264 stream through GStreamer,
+    decodes it, re-encodes it with FFmpeg, and publishes
+    ffmpeg_image_transport_msgs/msg/FFMPEGPacket messages.
+  </description>
+
+  <maintainer email="lucio.salinas@gmail.com">Lucio R. Salinas</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>pkg-config</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>ffmpeg_image_transport_msgs</depend>
+
+  <!-- System dependencies -->
+  <build_depend>libgstreamer1.0-dev</build_depend>
+  <build_depend>libgstreamer-plugins-base1.0-dev</build_depend>
+  <build_depend>libavcodec-dev</build_depend>
+  <build_depend>libavutil-dev</build_depend>
+
+  <exec_depend>libgstreamer1.0-dev</exec_depend>
+  <exec_depend>libgstreamer-plugins-base1.0-dev</exec_depend>
+  <exec_depend>libavcodec-dev</exec_depend>
+  <exec_depend>libavutil-dev</exec_depend>
+
+  <!-- External plugin required by the node -->
+  <!-- gstthetauvc: https://github.com/nickel110/gstthetauvc -->
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
